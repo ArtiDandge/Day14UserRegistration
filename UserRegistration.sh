@@ -1,10 +1,10 @@
 #!/bin/bash -x
 
-read -p "enter first name " fname
+read -p "enter first name " fname lname
 
-#fnamePattern="^[A-Z]{1}[a-z]{2,}$";
-pat="^[[:upper:]]{1}[a-z]{2,}$"
-if [[ $fname =~ $pat ]]
+namePattern="^[[:upper:]]{1}[a-z]{2,}$"
+
+if [[ $fname =~ $namePattern ]] && [[ $lname =~ $namePattern ]]
 then
 	echo "matched";
 else
