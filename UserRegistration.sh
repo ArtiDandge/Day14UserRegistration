@@ -11,6 +11,7 @@ emailPattern="^([A-Za-z]+[A-Za-z0-9]*((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*){0,})@(([
 mobPattern="^([+]{1}[9]{1}[1]{1})[[:space:]]|[6-9]{1}[0-9]{9}$"
 password_validate="[A-Za-z0-9]{8,}$"
 
+
 if [[ $first_name =~ $namePattern ]] && [[ $last_name =~ $namePattern ]]
 then
         echo "first name and last name matched";
