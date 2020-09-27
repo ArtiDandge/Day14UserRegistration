@@ -5,15 +5,12 @@ read -p "enter email address " email
 namePattern="^[[:upper:]]{1}[[:lower:]]{2,}$";
 emailPattern="^([A-Za-z]+[A-Za-z0-9]*((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*){0,})@(([A-Za-z]+[A-Za-z0-9]*)+((\.|\-|\_)?([A-Za-z]+[A-Za-z0-9]*)+){0,})+\.([A-Za-z]{2,})+$";
 
-
 if [[ $first_name =~ $namePattern ]] && [[ $last_name =~ $namePattern ]]
 then
-	echo "name matched"
-
+        echo "first name and last name matched";
 else
-	echo "name not matched ";
+        echo "name not matched";
 fi
-
 
 if [[ $email =~ $emailPattern ]]
 then
@@ -21,3 +18,4 @@ then
 else
         echo "email not matched"
 fi
+
