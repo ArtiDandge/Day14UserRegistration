@@ -9,7 +9,8 @@ read -p "enter password " password
 namePattern="^[[:upper:]]{1}[[:lower:]]{2,}$";
 emailPattern="^([A-Za-z]+[A-Za-z0-9]*((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*){0,})@(([A-Za-z]+[A-Za-z0-9]*)+((\.|\-|\_)?([A-Za-z]+[A-Za-z0-9]*)+){0,})+\.([A-Za-z]{2,})+$"
 mobPattern="^([+]{1}[9]{1}[1]{1})[[:space:]]|[6-9]{1}[0-9]{9}$"
-password_validate="(([:upper:]{1,}[0-9]{1,})).{8,}$"
+password_validate="[A-Za-z0-9]{8,}$"
+
 
 if [[ $first_name =~ $namePattern ]] && [[ $last_name =~ $namePattern ]]
 then
