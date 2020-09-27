@@ -1,27 +1,32 @@
 #!/bin/bash -x
 
-#input first name and last name as fname and lname
-read -p "enter first name and last name " fname lname
-
-#input email address
+read -p "enter first name and last name " first_name last_name
 read -p "enter email address " email
-
-#inpur mobileNo
-read -p "enter mobile number formate: country code followed by space followed by 10digit mob. number " mobileNo 
+read -p "enter mobile number with or without country code followed by space followed by 10digit mob. number " mobileNo 
 
 #patterns for name, email and mobileNo matching
 namePattern="^[[:upper:]]{1}[a-z]{2,}$";
-emailPattern="/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/"
-mobPattern="^([+]{1}[9]{1}[1]{1})\s[6-9]{1}[0-9]{9}$"
+emailPattern="^([A-Za-z]+[A-Za-z0-9]*((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*){0,})@(([A-Za-z]+[A-Za-z0-9]*)+((\.|\-|\_)?([A-Za-z]+[A-Za-z0-9]*)+){0,})+\.([A-Za-z]{2,})+$"
+mobPattern="^([+]{1}[9]{1}[1]{1})[[:space:]]|[6-9]{1}[0-9]{9}$"
 
-if [[ $fname =~ $namePattern ]] && [[ $lname =~ $namePattern ]]
+
+if [[ $first_name =~ $namePattern ]] && [[ $last_name =~ $namePattern ]]
 then
-	if [[ $email=~$emailPattern ]] && [[ $mobileNo=~$mobPattern ]] 
-	then
-		echo "name ,email and mobile number validation successfull";
-	else
-		echo "email and mobile number validation not successfull";
-	fi
+        echo "first name and last name matched";
 else
-	echo "name not matched";
+        echo "name not matched";
+fi
+
+if [[ $email =~ $emailPattern ]]
+then
+        echo "email matched"
+else
+        echo "email not matched"
+fi
+
+if [[ $mobileNo =~ $mobPattern ]]
+then
+        echo "mobNo matched"
+else
+        echo "mobNo not mathed"
 fi
