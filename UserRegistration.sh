@@ -1,12 +1,12 @@
 #!/bin/bash -x
 
-read -p "enter first name " fname lname
+read -p "enter first name " first_name last_name
 
 namePattern="^[[:upper:]]{1}[a-z]{2,}$"
 
-if [[ $fname =~ $namePattern ]] && [[ $lname =~ $namePattern ]]
+if [[ $first_name =~ $namePattern ]] && [[ $last_name =~ $namePattern ]]
 then
-	echo "matched";
+	echo "name matched";
 else
-	echo "not matched";
+	echo "name not matched";
 fi
