@@ -1,5 +1,6 @@
 #!/bin/bash -x
 
+#array of valid emails
 valid_emails=(
 	"abc@yahoo.com"
 	"abc-100@yahoo.com"
@@ -12,6 +13,7 @@ valid_emails=(
 	"abc+100@gmail.com"
 )
 
+#array of invalid emails
 invalid_emails=(
 	"abc"
 	"abc@.com.my"
@@ -30,6 +32,7 @@ invalid_emails=(
 
 emailPattern="^[[:lower:]]{1,}[._+\-]{0,1}[[:lower:]0-9]{1,}\@[[:lower:]0-9]{1,}[\.]{1}[[:lower:]]{2,}([.]{0,}[[:lower:]]{2,})?$"
 
+#fuction to validate emails
 function validate_email {
 
 if [[ $1 =~ ${emailPattern} ]]
@@ -41,25 +44,29 @@ fi
 
 }
 
+#online check of validity of mails
 cat <<-EOF
 a simple email validator in shell
 online validator: http://emailregex.com/
 RFC: http://emailregex.com/email-validation-summary/
 EOF
 
+#display that validated emails
 echo
-echo "### expected result: valid_emails"
+echo "expected result: valid_emails"
 echo
 
-
+#passing valid emails array as an input to function
 for input in "${valid_emails[@]}"; do
   validate_email "${input}"
 done
 
+#display emails
 echo
-echo "### expected result: invalid_emails"
+echo "expected result: invalid_emails"
 echo
 
+#passing invalid emails array as an input to function 
 for input in "${invalid_emails[@]}"; do
   validate_email "${input}"
 done
