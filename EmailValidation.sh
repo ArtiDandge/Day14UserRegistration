@@ -28,13 +28,11 @@ invalid_emails=(
 	"abc@gmail.com.aa.au"
 )
 
-
-#emailPattern="^([A-Za-z]+[A-Za-z0-9]*((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*){0,})@(([A-Za-z]+[A-Za-z0-9]*)+((\.|\-|\_)?([A-Za-z]+[A-Za-z0-9]*)+){0,})+\.([A-Za-z]{2,})+$"
-regex="^([A-Za-z]+[A-Za-z0-9]*\+?((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*)*)@(([A-Za-z0-9]+)+((\.|\-|\_)?([A-Za-z0-9]+)+)*)+\.([A-Za-z]{2,})+$"
+emailPattern="^[[:lower:]]{1,}[._+\-]{0,1}[[:lower:]0-9]{1,}\@[[:lower:]0-9]{1,}[\.]{1}[[:lower:]]{2,}([.]{0,}[[:lower:]]{2,})?$"
 
 function validate_email {
 
-if [[ $1 =~ ${regex} ]]
+if [[ $1 =~ ${emailPattern} ]]
 then
     printf "* %-48s \e[1;32m[pass]\e[m\n" "${1}"
 else
