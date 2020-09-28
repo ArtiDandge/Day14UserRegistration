@@ -7,7 +7,12 @@ read -p "enter password " password
 
 #patterns for name, email, mobileNo and password validation
 namePattern="^[[:upper:]]{1}[[:lower:]]{2,}$";
-emailPattern="^([A-Za-z]+[A-Za-z0-9]*((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*){0,})@(([A-Za-z]+[A-Za-z0-9]*)+((\.|\-|\_)?([A-Za-z]+[A-Za-z0-9]*)+){0,})+\.([A-Za-z]{2,})+$"
+
+#email pattern frob both upper and lower case
+#emailPattern="^([A-Za-z]+[A-Za-z0-9]*((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*){0,})@(([A-Za-z]+[A-Za-z0-9]*)+((\.|\-|\_)?([A-Za-z]+[A-Za-z0-9]*)+){0,})+\.([A-Za-z]{2,})+$"
+
+#email pattern for accepting lower case only
+emailPattern="^([[:lower:]]+[[:lower:]]0-9]*((\.|\-|\_)?[[:lower:]]+[[:lower:]][0-9]*){0,})@(([[:lower:]]+[[:lower:]]0-9]*)+((\.|\-|\_)?([[:lower:]]+[[:lower:]][0-9]*)+){0,})+\.([[:lower:]]{2,})+$"
 mobPattern="^([+]{1}[9]{1}[1]{1})[[:space:]]|[6-9]{1}[0-9]{9}$"
 password_validate="(([[:upper:]]{1,}[0-9]{1,}[[:lower:]]{1,}[\!@#$%*&~?]{1,})?).{8,}$"
 
