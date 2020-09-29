@@ -2,7 +2,7 @@
 
 read -p "enter first name and last name " first_name last_name
 read -p "enter email address " email
-read -p "enter mobile number formate: country code followed by space followed by 10 digit mobile number " mobileNo
+read -p "enter mobile number with or without country code followed by space followed by 10digit mob. number "
 read -p "enter password " password
 
 #patterns for name, email, mobileNo and password validation
@@ -36,6 +36,12 @@ then
 else
         echo "email not matched"
 fi
+
+if [[ $mobileNo =~ $mobPattern ]]
+then
+        echo "mobNo matched"
+else
+        echo "mobNo not mathed"
 
 if  [[ $password =~ $password_validate ]]
 then
